@@ -46,3 +46,12 @@ function statusLabel(string $status): string
         'done' => 'Done',
     ][$status] ?? $status;
 }
+
+function fecha(bool $mostrarFecha) : string 
+{
+ if ($mostrarFecha) {
+    echo date(DATE_RFC2822);
+ }  else {
+    echo date('l \t\h\e jS');
+ }
+}
