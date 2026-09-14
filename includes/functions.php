@@ -2,6 +2,9 @@
 
 declare(strict_types=1);
 
+date_default_timezone_set('UTC'); //Declarat per al Ex2
+
+
 function h(string|int|null $value): string
 {
     return htmlspecialchars((string) $value, ENT_QUOTES, 'UTF-8');
@@ -45,4 +48,16 @@ function statusLabel(string $status): string
         'in_progress' => 'In progress',
         'done' => 'Done',
     ][$status] ?? $status;
+}
+
+
+// EXERCICIS
+//Exercici 2
+function mostrarData(bool $withTime): string
+{
+    if ($withTime) {
+        return date('l, jS \of F Y') . "\n";
+    } else {
+        return "";
+    }
 }
