@@ -5,19 +5,26 @@ require_once __DIR__ . '/../includes/functions.php';
 session_start();
 $data = loadData();
 $errors = [];
+$values = [];
 require __DIR__ . '/../includes/header.php';
 
 
 if($_SERVER["REQUEST_METHOD"] === 'POST'){
-    $values[] = $_POST["name"];
-    $goal[] = $_POST["goal"];
-    $start[] = $_POST["start_date"];
-    $end[] = $_POST["end"];
-    $status[] = $_POST["status"];
+    $values['name'] = $_POST["name"];
+    $values['goal'] = $_POST["goal"];
+    $values['start_date'] = $_POST["start_date"];
+    $values['end_date'] = $_POST["end_date"];
+    $values['status'] = $_POST["status"];
 
     if (!$errors) {
         $ids = array_column($data['sprints'],'id');
-        $data['sprints'][] = ['id' => $ids ? max($ids) + 1 : 1, 'name' => $values['name'], 'goal' => $goal['goal'], 'start_date' => $start['start_date'], 'end_date' => $end['end_date'], 'status' => $status['status']];
+        $data['sprints'][] = [
+            'id'            => $ids ? max($ids) + 1 : 1,
+            'name'          => $values["name"],
+            'goal'          => $values["goal"],
+            'start_date'    => $values["start_date"],
+            'end_date'      => $values["end_date"],
+            'status'        => $values["status"]];
         if (saveData($data)) {
             echo("guay");
         }
