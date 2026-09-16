@@ -12,6 +12,7 @@
     <a class="navbar-brand fw-bold" href="index.php">SprintBoard</a>
     <?php if (!empty($_SESSION['user_id'])): ?>
         <div class="d-flex gap-3 align-items-center">
+            <a class="text-white" href="sprints.php">Sprints</a>
             <a class="text-white" href="board.php">Tauler</a>
             <a class="text-white" href="teams.php">Equips</a>
             <a class="text-white" href="profile.php">Perfil</a>

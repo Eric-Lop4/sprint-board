@@ -23,6 +23,22 @@
             "start_date": "2026-09-01",
             "end_date": "2026-09-14",
             "status": "active"
+        },
+        {
+            "id":2,
+            "name":"Sprint 2",
+            "goal":"Construir el formulari",
+            "start_date":"2026-08-2",
+            "end_date":"2026-12-2",
+            "status":"active"
+        },
+        {
+            "id":3,
+            "name":"Sprint 3",
+            "goal":"Test de funcionament",
+            "start_date":"2027-01-2",
+            "end_date":"2027-02-2",
+            "status":"active"
         }
     ],
     "teams": [
