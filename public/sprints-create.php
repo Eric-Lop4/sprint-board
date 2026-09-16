@@ -22,12 +22,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($values['goal'] === '') $errors[] = 'Posar un objectiu és obligatori.';
     if ($values['start_date'] === '') $errors[] = 'Has de posar una data de inici.';
     if ($values['end_date'] === '') $errors[] = 'Has de posar una data de fi.';
+
+    $timeStampIni = strtotime($values['start_date']);
+    $timeStampFi = strtotime($values['end_date']);
+
+    if ($timeStampIni > $timeStampFi) $errors[] = 'La data inicial no pot ser posterior a la final';
+
+
     if ($values['status'] === '') $errors[] = 'Defineix el status';
 
 
     if (!$errors) {
         $data['sprints'][] = [
-            'id' => $data['id']++,
+            'id' => $data['next_ids']['sprints']++,
             'name' => $values['name'],
             'goal' => $values['goal'],
             'start_date' => $values['start_date'],
