@@ -49,9 +49,9 @@ function statusLabel(string $status): string
 
 function fecha(bool $mostrarFecha) : string 
 {
- if ($mostrarFecha) {
-    echo date(DATE_RFC2822);
- }  else {
-    echo date('l \t\h\e jS');
- }
+    if ($mostrarFecha) {
+        echo date(DATE_RFC2822);
+    } else {
+        echo date('l \t\h\e jS');
+    }
 }

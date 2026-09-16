@@ -79,6 +79,7 @@ require __DIR__ . '/../includes/header.php';
 <div class="d-flex justify-content-between align-items-center mb-4">
     <h1>Tauler Kanban</h1>
     <a class="btn btn-primary" href="task-create.php">+ Nova tasca</a>
+    <a class="btn btn-primary" href="sprints.php"> + Sprints </a>
 </div>
 
 <?php foreach ($errors as $error): ?>
