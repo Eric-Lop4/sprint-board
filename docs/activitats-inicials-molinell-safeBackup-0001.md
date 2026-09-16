@@ -101,24 +101,14 @@ Les activitats treballen principalment amb formularis, sessions, arrays, condici
 - **Pàgina de referència:** `teams.php`.
 - **Criteri de finalització:** Apareixen els esprints.
 
-## 13. Crear esprints
+## 12. Crear esprints
 
 - **Fitxer:** `public/sprints-create.php`, `board.php`
 - **Objectiu:** Crea un esprint.
 - **Tasques:** Afegir una pàgina que permeta la creació d'esprints.- 
 - **Conceptes:** Arrays, format JSON, inclusions.
-- **Pàgina de referències:** `public/register.php`, `public/task-create.php`.
+- **Pàgina de referències:** `public/register.php`, 
 - **Criteri de finalització:** Després de crear l'esprint redirigim a la pàgina que llista els esprints.
-
-## 14. Validar la creació d'esprints
-
-- **Fitxer:** `public/sprints-create.php`, `board.php`
-- **Objectiu:** Crea un esprint amb validació prèvia dels camps.
-- **Tasques:** Afegir validació a la creació d'esprints, tots els camps són obligatoris.  
-- **Conceptes:** Arrays, format JSON, inclusions.
-- **Pàgina de referències:** `public/register.php`, `public/task-create.php`.
-- **Criteri de finalització:** Després de crear l'esprint redirigim a la pàgina que llista els esprints.
-
 
 
 ## Recomanacions
