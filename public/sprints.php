@@ -13,9 +13,8 @@ require __DIR__ . '/../includes/header.php';
 ?>
 
 <div class="d-flex justify-content-between align-items-center mb-4">
-    <div>
-        <h1>Sprints</h1>
-    </div>
+    <h1>Sprints</h1>
+    <a class="btn btn-primary" href="sprints-create.php">+ Nou sprint</a>
 </div>
 
 <div class="row g-3">
@@ -24,9 +23,10 @@ require __DIR__ . '/../includes/header.php';
             <div class="card h-100">
                 <div class="card-body">
                     <h2 class="h4"> <?= h($sprints['name']) ?></h2>
-                    <p class="text-muted">Objectiu: <?= ($sprints['goal']) ?> membre(s)</p>
+                    <p class="text-muted">Objectiu: <?= ($sprints['goal']) ?></p>
                     <p class="text-info"> Data d'inici: <?= ($sprints['start_date']) ?> </p>
                     <p class="text-danger">Data fi: <?= ($sprints['end_date']) ?></p>
+                    <p class="text-black">Estat: <?= ($sprints['status']) ?></p>
 
                 </div>
             </div>
