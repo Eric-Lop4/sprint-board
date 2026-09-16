@@ -54,4 +54,5 @@ function fecha(bool $fecha): string
     } else {
         echo date('l \t\h\e jS');
     }
+    return "";
 }

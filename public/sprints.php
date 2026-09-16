@@ -8,7 +8,7 @@ $data = loadData();
 require __DIR__ . '/../includes/header.php';
 ?>
     <h1>Sprints disponibles</h1>
-    <button></button>
+    <a href="sprints-create.php">Afegir sprint</a>
         <div class="row g-3">
     <?php foreach ($data['sprints'] as $sp): ?>
         <div class="col-md-6">
