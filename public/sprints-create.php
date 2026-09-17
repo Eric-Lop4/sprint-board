@@ -25,10 +25,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($values['start_date'] === '') $errors[] = 'Has de posar una data de inici.';
     if ($values['end_date'] === '') $errors[] = 'Has de posar una data de fi.';
 
-    $timeStampIni = strtotime($values['start_date']);
-    $timeStampFi = strtotime($values['end_date']);
+    $inici = DateTime::createFromFormat(
+        'Y-m-d',
+        $_POST['start_date'] ?? ''
+    );
+    $fi = DateTime::createFromFormat(
+        'Y-m-d',
+        $_POST['end_date'] ?? ''
+    );
 
-    if ($timeStampIni > $timeStampFi) $errors[] = 'La data inicial no pot ser posterior a la final';
+    if ($inici !== false && $fi !== false && $fi < $inici) {
+        $errors[] = 'La data de finalització no pot ser anterior a la
+        d\'inici.';
+    }
+
 
 
     if ($values['status'] === '') $errors[] = 'Defineix el status';
