@@ -42,34 +42,10 @@
         },
         {
             "id": 4,
-            "name": null,
-            "goal": null,
-            "start_date": null,
-            "end_date": null,
-            "status": null
-        },
-        {
-            "id": 5,
-            "name": null,
-            "goal": null,
-            "start_date": null,
-            "end_date": null,
-            "status": null
-        },
-        {
-            "id": 6,
             "name": "asdsad",
             "goal": "asdasd",
             "start_date": "2026-09-16",
             "end_date": "2026-09-09",
-            "status": "asdasd"
-        },
-        {
-            "id": 7,
-            "name": "dasasd",
-            "goal": "asdasd",
-            "start_date": "2026-09-02",
-            "end_date": "2026-09-02",
             "status": "asdasd"
         }
     ],

@@ -56,3 +56,45 @@ function fecha(bool $fecha): string
     }
     return "";
 }
+
+function isFilled(array $values, array $errors): array {
+    if (empty($values['name']) || empty($values['goal']) || empty($values['start_date']) || empty($values['end_date']) || empty($values['status'])) {
+        $errors[] = 'Los campos tienen que estar completos';
+    }
+    return $errors;
+}
+
+function validationString(array $values, array $errores): array {
+    $tamañoName = mb_strlen($values['name']);
+    $tamañoGoal = mb_strlen($values['goal']);
+    
+    if ($tamañoName < 3) {
+        $errores[] = 'El name es muy corto';
+    } elseif ($tamañoName > 100) {
+        $errores[] = 'El name es muy largo';
+    }
+
+    if ($tamañoGoal < 3) {
+        $errores[] = 'El goal es muy corto';
+    } elseif ($tamañoGoal > 100) {
+        $errores[] = 'El goal es muy largo';
+    }
+    return $errores; 
+}
+
+function validateDate($values, $errores): array {
+    $dataInici = $values['start_date'];
+    $dataFi = $values['end_date'];
+
+    $dataValidadaInici = DateTime::createFromFormat('Y-m-d',$dataInici);
+    $dataValidadaFi = DateTime::createFromFormat('Y-m-d',$dataFi);
+
+
+    if(date_timestamp_get($dataValidadaFi) < date_timestamp_get($dataValidadaInici)){
+        $errores[] = 'La data de de fi no pot ser menor a la incial';
+    }
+
+
+    return $errores;
+}
+
