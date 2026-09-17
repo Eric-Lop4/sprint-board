@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 session_start();
 require_once __DIR__ . '/../includes/data.php';
@@ -17,7 +18,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $values['title'] = trim((string) ($_POST['title'] ?? ''));
     $values['description'] = trim((string) ($_POST['description'] ?? ''));
     if (!validCsrf()) $errors[] = 'La sessió no és vàlida.';
+
     if ($values['title'] === '') $errors[] = 'El títol és obligatori.';
+
+    if (mb_strlen($values['title']) < 3) {
+        $errors[] = 'El títol ha de tindre almenys 3 caràcters.';
+    }
+
     if ($values['description'] === '') $errors[] = 'La descripció és obligatòria.';
     if (!$errors) {
         $data['tasks'][] = [
@@ -49,7 +56,7 @@ require __DIR__ . '/../includes/header.php';
             <div class="alert alert-danger"><?= h($error) ?></div>
         <?php endforeach; ?>
 
-        <form method="post" class="card card-body">
+        <form method="post" class="card card-body" novalidate>
             <input type="hidden" name="csrf" value="<?= h(csrfToken()) ?>">
 
             <label class="form-label">Títol</label>
