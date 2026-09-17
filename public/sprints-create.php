@@ -19,6 +19,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $values['end_date'] = ($_POST['end_date'] ?? '');
     $values['status'] = ($_POST['status'] ?? ''); 
 
+if ($values ['name'] === " ") $errors [] = "El nom es obligatori";
+
+
+
 if (!$errors) {
         $ids = array_column($data['sprints'], 'id');
         $data['sprints'][] = ['id' => $ids ? max($ids) + 1 : 1, 'name' => $values['name'], 'goal' => $values['goal'], 'start_date' => $values['start_date'], 'end_date' => $values['end_date'], 'status' => $values['status']];
@@ -43,22 +47,22 @@ if (!$errors) {
 
 <div class="row g-3">
     <div class="col-md-6">
-        <form method="post">
+        <form method="post" novalidate>
 
             <label class="form-label">name</label>
-            <input class="form-control mb-3" type="text" name="name" required>
+            <input class="form-control mb-3" type="text" name="name">
 
             <label class="form-label">goal</label>
-            <input class="form-control mb-3" type="text" name="goal" required>
+            <input class="form-control mb-3" type="text" name="goal">
 
             <label class="form-label">start_date</label>
-            <input class="form-control mb-3" type="date" name="start_date" required>
+            <input class="form-control mb-3" type="date" name="start_date">
 
             <label class="form-label">end_date</label>
-            <input class="form-control mb-3" type="date" name="end_date" required>
+            <input class="form-control mb-3" type="date" name="end_date">
 
             <label class="form-label">status</label>
-            <input class="form-control mb-3" type="text" name="status" required>
+            <input class="form-control mb-3" type="text" name="status">
 
             <button class="btn btn-primary">Enviar</button>
 
