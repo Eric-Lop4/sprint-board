@@ -6,6 +6,8 @@ require_once __DIR__ . '/../includes/data.php';
 require_once __DIR__ . '/../includes/auth.php';
 require_once __DIR__ . '/../includes/functions.php';
 requireAuth();
+$errors = [];
+
 $data = loadData();
 $values = ['name' => '', 'goal' => '', 'start_date' => '',  'end_date' => '', 'status' => ''];
 
