@@ -16,13 +16,14 @@ require __DIR__ . '/../includes/header.php';
     <div>
         <p class="text-primary fw-semibold mb-1"></p>
         <h1>Sprints</h1>
+        <a class="btn btn-primary" href="sprints-create.php"> Create new sprint</a>
     </div>
 </div>
 
 <div class="row g-3">
         <div class="col-md-6">
             <?php foreach($data["sprints"] as $s):?>
-            <div class="card h-100">
+            <div class="card m-2">
                 <div class="card-body">
                     <h4><?php echo($s["name"])?></h4>
                     <p><?php echo($s["goal"])?></p>
