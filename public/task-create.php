@@ -19,6 +19,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!validCsrf()) $errors[] = 'La sessió no és vàlida.';
     if ($values['title'] === '') $errors[] = 'El títol és obligatori.';
     if ($values['description'] === '') $errors[] = 'La descripció és obligatòria.';
+    if (!preg_match('/^.{3,99}$/', $values['title'])) {
+    $errors[] = 'El títol ha de tindre entre 3 i 99 caràcters';
+    }
     if (!$errors) {
         $data['tasks'][] = [
             'id' => $data['next_ids']['tasks']++,
@@ -59,6 +62,11 @@ require __DIR__ . '/../includes/header.php';
             <textarea class="form-control mb-3" name="description" rows="4" required><?= h($values['description']) ?></textarea>
 
             <button class="btn btn-primary" <?= !$sprint ? 'disabled' : '' ?>>Crear tasca</button>
+            <?php if($errors !== []): ?>
+                <?php foreach($errors as $e): ?>
+                    <p class="text-danger"><?=h($e)?> </p>
+                <?php endforeach;?>
+            <?php endif;?>
         </form>
     </div>
 </div>
