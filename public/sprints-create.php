@@ -19,9 +19,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $values['end_date'] = ($_POST['end_date'] ?? '');
     $values['status'] = ($_POST['status'] ?? ''); 
 
-if ($values ['name'] === " ") $errors [] = "El nom es obligatori";
-
-
+if ($values ['name'] === '') $errors [] = 'El nom es obligatori';
+if ($values ['goal'] === '') $errors [] = 'El goal es obligatori';
+if ($values ['start_date'] === '') $errors [] = 'El start_date es obligatori';
+if ($values ['end_date'] === '') $errors [] = 'El end_date es obligatori';
+if ($values ['status'] === '') $errors [] = 'El status es obligatori';
 
 if (!$errors) {
         $ids = array_column($data['sprints'], 'id');
@@ -47,6 +49,11 @@ if (!$errors) {
 
 <div class="row g-3">
     <div class="col-md-6">
+
+        <?php foreach ($errors as $error): ?>
+            <div class="alert alert-danger"><?= h($error) ?></div>
+        <?php endforeach; ?>
+
         <form method="post" novalidate>
 
             <label class="form-label">name</label>
