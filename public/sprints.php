@@ -22,7 +22,13 @@ require __DIR__ . '/../includes/header.php';
         <div class="col-md-6">
             <div class="card h-100">
                 <div class="card-body">
-                    <h2 class="h4"> <?= h($sprints['name']) ?></h2>
+                    <h2 class="h4">
+                        <a href="sprint.php?id=<?= $sprints['id'] ?>">
+
+                            <?= h($sprints['name']) ?>
+                        </a>
+                    </h2>
+
                     <p class="text-muted">Objectiu: <?= ($sprints['goal']) ?></p>
                     <p class="text-info"> Data d'inici: <?= ($sprints['start_date']) ?> </p>
                     <p class="text-danger">Data fi: <?= ($sprints['end_date']) ?></p>
