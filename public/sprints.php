@@ -14,7 +14,7 @@ require __DIR__ . '/../includes/header.php';
         <div class="col-md-6">
             <div class="card h-100">
                 <div class="card-body flex justify-content-center">
-                    <h4 class="h4"><?= h($sp['name']) ?></h4>
+                    <a href="sprint.php?id=<?= $sp['id'] ?>"><h4 class="h4"><?= h($sp['name']) ?></h4></a>
                     <p class="h4"><?= h($sp['goal']) ?></p>
                     <p class="h4"><?= h($sp['start_date']) ?></p>
                     <p class="h4"><?= h($sp['end_date']) ?></p>
