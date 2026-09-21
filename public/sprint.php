@@ -8,10 +8,15 @@ $data = loadData();
 $id = (int) ($_GET['id'] ?? 0);
 $sprint = findRecord($data['sprints'], $id);
 
-if (!$sprint) {
+if (!$id == $sprint['id']) {
     http_response_code(404);
     exit('Sprint no trobada');
 }
+if ($id == null)
+    {
+        http_response_code(400);
+        exit('400');
+    }
 
 require __DIR__ . '/../includes/header.php';
 ?>

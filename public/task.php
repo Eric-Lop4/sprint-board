@@ -100,5 +100,6 @@ require __DIR__ . '/../includes/header.php';
     ></textarea>
     <button class="btn btn-primary">Afegir comentari</button>
 </form>
+<a href="task-edit.php?id=<?= $id ?>">Editar tasca</a>
 
 <?php require __DIR__ . '/../includes/footer.php'; ?>
