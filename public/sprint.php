@@ -12,14 +12,15 @@ $id = (int) ($_GET['id'] ?? 0);
 $data = loadData();
 $sprints = findRecord($data['sprints'], $id);
 
-if (!$sprints) {
-    http_response_code(404);
-    exit('Sprint no trobat. Codi 404');
-}
-if (!$id) {
+if ($id == null) {
     http_response_code(400);
     exit('Codi incorrecte o no trobat. Codi 400');
 }
+if (!$id = $sprints['id']) {
+    http_response_code(404);
+    exit('Sprint no trobat. Codi 404');
+}
+
 
 $errors = [];
 
