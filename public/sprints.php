@@ -25,7 +25,9 @@ require __DIR__ . '/../includes/header.php';
             <?php foreach($data["sprints"] as $s):?>
             <div class="card m-2">
                 <div class="card-body">
+                    <a href="sprint.php?id=<?php echo ($s["id"])?>">
                     <h4><?php echo($s["name"])?></h4>
+                </a>
                     <p><?php echo($s["goal"])?></p>
                     <p><?php echo($s["start_date"])?></p>
                     <p><?php echo($s["end_date"])?></p>
@@ -34,7 +36,6 @@ require __DIR__ . '/../includes/header.php';
             </div>
             <?php endforeach; ?>
         </div>
-
 </div>
 
 <?php require __DIR__ . '/../includes/footer.php'; ?>
