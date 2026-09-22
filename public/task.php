@@ -72,7 +72,7 @@ require __DIR__ . '/../includes/header.php';
     </div>
     <a href="board.php" class="btn btn-outline-secondary align-self-start">Tornar</a>
 </div>
-
+    <a href="task-edit.php?id=<?= $id ?>" class="btn btn-primary">Editar tasca</a>
 <hr>
 
 <h2 class="h4">Comentaris</h2>
