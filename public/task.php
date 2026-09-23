@@ -11,6 +11,10 @@ $id = (int) ($_GET['id'] ?? 0);
 $data = loadData();
 $task = findRecord($data['tasks'], $id);
 
+$_SESSION['task_id'] = ($_SESSION['task_id'] ?? []);
+$_SESSION['task_id'][] = $id;
+$_SESSION['id'] = $id;
+
 if (!$task) {
     http_response_code(404);
     exit('Tasca no trobada');
