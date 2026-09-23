@@ -17,11 +17,14 @@ $sprintTasks = array_filter(
 );
 $counts = array_count_values(array_column($sprintTasks, 'status'));
 $pageTitle = 'Inici';
+$visit_count = (int) ($_SESSION['visit_count'] ?? 0) + 1;
+$_SESSION['visit_count'] = $visit_count;
 require __DIR__ . '/../includes/header.php';
 ?>
 
 <div class="d-flex justify-content-between align-items-center mb-4">
     <div>
+        <p class="text-primary fw-semibold mb-1">Has visitat aquesta pàgina <?= $visit_count ?> vegades</p>
         <p class="text-primary fw-semibold mb-1">PANELL DE TREBALL</p>
         <h1>Hola, <?= h($user['name'] . " " . h($user['email'])) ?></h1>
     </div>
