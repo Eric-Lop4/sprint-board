@@ -19,7 +19,6 @@ $counts = array_count_values(array_column($sprintTasks, 'status'));
 $pageTitle = 'Inici';
 $visit_count = (int) ($_SESSION['visit_count'] ?? 0) + 1;
 $_SESSION['visit_count'] = $visit_count;
-$last_visited_task_id = $_SESSION['task_id'][0] ?? null;
 require __DIR__ . '/../includes/header.php';
 ?>
 
@@ -61,6 +60,10 @@ require __DIR__ . '/../includes/header.php';
 <a class="btn btn-outline-dark" href="board.php">Obrir tauler Kanban</a>
 
 <p class="text-primary fw-semibold mb-1">Ultima tasca visitada: </p>
-<p class="text-primary fw-semibold mb-1"><?= h($_SESSION['task_id'][0] ?? 'Cap tasca visitada') ?></p>
+<p class="text-primary fw-semibold mb-1">
+<?php foreach (array_slice($_SESSION['task_id'] ?? [], -3) as $task_id): ?>
+    <?php echo(h($task_id)); ?>
+<?php endforeach; ?>
+</p>
 
 <?php require __DIR__ . '/../includes/footer.php'; ?>
