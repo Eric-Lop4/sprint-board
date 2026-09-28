@@ -19,6 +19,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!validCsrf()) $errors[] = 'La sessió no és vàlida.';
     if ($values['title'] === '') $errors[] = 'El títol és obligatori.';
     if ($values['description'] === '') $errors[] = 'La descripció és obligatòria.';
+    if (!preg_match('/^.{3,99}$/', $values['title'])) {
+        $errors[] = "El titul supera el numero de caracters";
+    } 
     if (!$errors) {
         $data['tasks'][] = [
             'id' => $data['next_ids']['tasks']++,
